@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+<body><script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=Mwa7kjFIImyGp_gcYc6m3PuVe2hCVnyMcvep6Qmut773ee8Fi7QPXt-EuE1ZWwTXV_uIECS2OyBFR7aOSOs7ZuVE1h9lkrZO2jx2E4H0nEkJVuwJD2rKnqTYFSusNdylPd6U7J4er4SPrUl_Yzc8mlE7NdgEOFOixn136uUcC9mziH42gufB3n0A2c_ceGLNwHSb3GoJP3kT0NaIL3RceKzwTzhrXc2_NhmQrShhIEyrJI21YM0Me2m-cUjjY5f7qxsrgwQW94Ql-nnO7EcTS2CrEJyDejg4FivaLF-47Pu-HlV_rvvDK1JEocCXyo9runcaPGJ8TRIzMIyIDLTZQy9ugnpF9-wer8eJzYD333-SUsNW9M3OdLQ4Oc1oX4P4_MFuUAMn5OzEQy3EZJkKd2zTYYg3GkmFeJ9UyJezgHwulkFsKv1cF3tjBkd4i_GmkmbQGRiW5VgS1o6ENW5Cuw" charset="UTF-8"></script>
+<script>
+    function PressButtonOn(){
+        var url = 'https://api.netpie.io/microgear/'+APPID+ALIAS+'?retain&auth=' +KEY+':'+SECRET;
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open('PUT',url,true);
+        xmlHttp.send('1');
+        window.alert(url);//for debugging purpose
+    }    
+    function PressButtonOff(){
+        var url = 'https://api.netpie.io/microgear/'+APPID+ALIAS+'?retain&auth=' +KEY+':'+SECRET;
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open('PUT',url,true);
+        xmlHttp.send('0');
+        window.alert(url); //for debugging purpose
+    }    
+</script>
+<h1 id="connected_NETPIE"></h1>
+<center>
+<button onclick= “PressButtonOn()” id = “ButtonOn”>ON</button>
+<button onclick= “PressButtonOff()” id = “ButtonOff”>OFF</button>
+</center>
+	<script src="https://cdn.netpie.io/microgear.js"></script>
+	<script src="micrograr.js"></script>
+</body>
+</html>

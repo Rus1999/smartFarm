@@ -1,0 +1,31 @@
+<html>
+<body>
+
+<script>
+    var APPID= "ENDProject7"; //enter your appid
+    var KEY = "0oxshv810vNhYn9"; //enter your key
+    var SECRET = "4yq9NgqNssyizrVaIV7W7whHp"; //enter your secret
+    var ALIAS = “pieled”; //same alias you set on NodeCMU
+
+    function PressButtonOn(){
+        var url = 'https://api.netpie.io/microgear/'+APPID+ALIAS+'?retain&auth=' +KEY+':'+SECRET;
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open('PUT',url,true);
+        xmlHttp.send('1');
+        window.alert(url);//for debugging purpose
+    }    
+    function PressButtonOff(){
+        var url = 'https://api.netpie.io/microgear/'+APPID+ALIAS+'?retain&auth=' +KEY+':'+SECRET;
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open('PUT',url,true);
+        xmlHttp.send('0');
+        window.alert(url); //for debugging purpose
+    }    
+</script>
+
+<center>
+<button onclick= “PressButtonOn()” id = “ButtonOn”>ON</button>
+<button onclick= “PressButtonOff()” id = “ButtonOff”>OFF</button>
+</center>
+</body>
+</html>

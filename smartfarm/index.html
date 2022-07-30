@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <title>โครงการแปลงผักรดน้ำอัจฉริยะ</title>
+    <meta charset="utf-8">
+    <script src="https://netpie.io/public/netpieio/microgear.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+
+  </head>
+<body>
+<script src="https://cdn.netpie.io/microgear.js"></script>
+<script src="https://netpie.io/microgear.js"></script>
+<script >
+  const APPID = "ENDProject7";
+  const KEY = "Opp8J5zgE7jU3Jn";
+  const SECRET = "v4hFb1kIJDen1MXVWEIQo2tJf";
+
+  const ALIAS = "HTML_web";      
+  const thing1 = "Esp8266_1";         
+
+
+
+  var microgear = Microgear.create({
+    key: KEY,
+    secret: SECRET,
+    alias : ALIAS
+  });
+
+
+  function sendmoi(){
+    var moi = document.getElementById("Moival").value;
+    microgear.chat(thing1,moi);
+    document.getElementById("CurrentMoi").innerHTML = "จะทำการรดน้ำเมื่อค่าความชื้นต่ำกว่า" + moi;
+  }
+
+  microgear.on('message',function(topic,msg) {
+    document.getElementById("raw_data").innerHTML = "Data from Node MCU = " + msg;
+    console.log(msg);  // for debug
+    document.getElementById("Moisure").innerHTML = + msg;
+
+  });
+
+  microgear.on('connected', function() {
+    microgear.setAlias(ALIAS);
+    document.getElementById("connected_NETPIE").innerHTML = "Connected to NETPIE"
+  });
+
+  microgear.on('present', function(event) {
+    console.log(event);
+  });
+
+  microgear.on('absent', function(event) {
+    console.log(event);
+  });
+
+  microgear.resettoken(function(err) {
+    microgear.connect(APPID);
+  });
+</script>
+<br><br><br>
+<center>
+<h1 id="connected_NETPIE">NETPIE NOT CONNECT</h1>
+<br>
+<h2>ค่าความชื้นปัจจุบัน</h2>
+<p id="raw_data"></p> 
+<br>
+<p id="get_topic"></p> 
+<br>
+<br>
+<div class="clock">
+  <div class="number">
+    <p><strong id="Moisure"></strong></p>
+  </div>
+</div>
+<br>
+<br><br><br>
+<h2>ตั้งค่าความชื้น(0-100)</h2>
+<br>
+<input type="number" style="width:100px; height:25px;" min="0" max="100" step="5" placeholder="0-100" id="Moival" pattern="[0-9]{1,}" required>
+<button type="button" onclick="sendmoi()" id="btn1">Send</button>
+
+<br><br>
+<p id="CurrentMoi"></p>
+
+
+</center>
+
+</body>
+<footer>
+<center>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  <h4>Presented By</h4>
+  <br>
+  <p>นายปุญญฤทธิ์  กล้าผจญ</p>
+  <p>นางสาวประภาวดี เชาว์ฉลาด</p>
+</center>
+</footer>
+</html>
