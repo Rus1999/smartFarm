@@ -1,5 +1,5 @@
 # smartFarm
-This is final project of my High Vocational Certificate in 2020.
+This is my final project of High Vocational Certificate in 2020.
 
 
 ![alt text](https://github.com/Rus1999/smartFarm/blob/main/capture/Picture1.jpg) <br>
